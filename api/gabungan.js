@@ -25,11 +25,11 @@ const add = async (req, res) => {
 
 const daftar = async (req, res) => {
     try { 
-        const {username, password, role} = req.query
+        const {email, password, role} = req.query
         const { data, error } = await supabase
             .from('login')
             .insert([
-                { username, password, role },
+                { email, password, role },
         ])
         if (error) {
             return res.json(error)
@@ -41,7 +41,7 @@ const daftar = async (req, res) => {
     }    
 }
 
-const edit = async (req, res) => {
+const hapus = async (req, res) => {
     try { 
         const {id} = req.query
         const { data, error } = await supabase
@@ -77,7 +77,7 @@ const listlogin = async (req, res) => {
     try { 
         const { data, error } = await supabase
             .from('login')
-            .select('id, username, password, role')
+            .select('id, email, password, role')
         if (error) {
             return res.json(error)
         }
@@ -88,6 +88,20 @@ const listlogin = async (req, res) => {
     }    
 }
 
+const login = async (req, res) => {
+    try { 
+        const {email, password, role} = req.query
+        const { user, error } = await supabase.auth.signIn({
+            email: 'someone@email.com',
+            password: 'OOrwKRJMYSAPLyhAMnBL'
+          })
+        
+        res.json(user)
+    } catch (error) {
+        return res.json(error)
+    }    
+}
+
 module.exports = {
-    add, daftar, edit, list, listlogin
+    add, daftar, hapus, list, listlogin, login
 }
