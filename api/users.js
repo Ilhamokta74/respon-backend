@@ -8,11 +8,11 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const add = async (req, res) => {
     try { 
-        const {tax, poli, date, location, name, nik, address, handphone} = req.query
+        const {tax, poli, date, location, name, nik, address, handphone, tanggal} = req.query
         const { data, error } = await supabase
             .from('users')
             .insert([
-                { tax, poli, date, location, name, nik, address, handphone },
+                { tax, poli, date, location, name, nik, address, handphone, tanggal },
         ])
         if (error) {
             return res.json(error)
