@@ -1,7 +1,6 @@
 const {createClient} = require('@supabase/supabase-js')
 
-//const SUPABASE_KEY = PROCESS.ENV.SUPABASE_KEY
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkdGJ5dGFydnhsZnJrZ21mYXFxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1NjI1NDE5MiwiZXhwIjoxOTcxODMwMTkyfQ.wrpDg8IdI9Q_Fd0Qu3xh2BVmKY8SYl7khhwfJhViIVs"
+const SUPABASE_KEY = PROCESS.ENV.SUPABASE_KEY
 const SUPABASE_URL = "https://pdtbytarvxlfrkgmfaqq.supabase.co"
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
