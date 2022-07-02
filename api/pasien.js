@@ -8,11 +8,11 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const add = async (req, res) => {
     try { 
-        const {tax, poli, date, location, name, nik, address, handphone, tanggal} = req.query
+        const {NamaPasien, NIK, Alamat, NomerTelepon, Pembayaran, Poli, Jadwal, Tanggal} = req.query
         const { data, error } = await supabase
-            .from('data-antrian')
+            .from('data-Pasien')
             .insert([
-                { tax, poli, date, location, name, nik, address, handphone, tanggal },
+                { NamaPasien, NIK, Alamat, NomerTelepon, Pembayaran, Poli, Jadwal, Tanggal },
         ])
         if (error) {
             return res.json(error)
@@ -28,7 +28,7 @@ const hapus = async (req, res) => {
     try { 
         const {id} = req.query
         const { data, error } = await supabase
-            .from('data-antrian')
+            .from('data-Pasien')
             .delete()
             .eq('id', id)
         if (error) {
@@ -44,7 +44,7 @@ const hapus = async (req, res) => {
 const list = async (req, res) => {
     try { 
         const { data, error } = await supabase
-            .from('data-antrian')
+            .from('data-Pasien')
             .select('*')
         if (error) {
             return res.json(error)
@@ -58,10 +58,10 @@ const list = async (req, res) => {
 
 const update = async (req, res) => {
     try { 
-        const {tax, poli, date, location, name, nik, address, handphone, id} = req.query
+        const {NamaPasien, NIK, Alamat, NomerTelepon, Pembayaran, Poli, Jadwal, Tanggal, id} = req.query
         const { data, error } = await supabase
-            .from('data-antrian')
-            .update({ tax, poli, date, location, name, nik, address, handphone })
+            .from('data-Pasien')
+            .update({ NamaPasien, NIK, Alamat, NomerTelepon, Pembayaran, Poli, Jadwal, Tanggal })
             .eq('id', id)
         if (error) {
             return res.json(error)
