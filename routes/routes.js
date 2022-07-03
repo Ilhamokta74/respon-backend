@@ -5,15 +5,15 @@ const staff = require('../api/staff');
 const puskesmas = require('../api/puskesmas')
 const admin = require('../api/admin')
 
-router.get('/pasien/add', pasien.add)
+router.post('/pasien/add', pasien.add)
 router.get('/pasien/list', pasien.list)
-router.get('/pasien/update', pasien.update)
-router.get('/pasien/delete', pasien.hapus)
+router.put('/pasien/update', pasien.update)
+router.delete('/pasien/delete', pasien.hapus)
 
-router.get('/staff/add', staff.add)
+router.post('/staff/add', staff.add)
 router.get('/staff/list', staff.list)
-router.get('/staff/update', staff.update)
-router.get('/staff/delete', staff.hapus)
+router.put('/staff/update', staff.update)
+router.delete('/staff/delete', staff.hapus)
 
 router.get('/puskesmas/add', puskesmas.add)
 router.get('/puskesmas/list', puskesmas.list)
